@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>博创二级节点监控平台</title>
+    <link rel="stylesheet" href="./css/exhibition/index.css?t=2022719">
+</head>
+
+<body>
+    <div id="app" class="app">
+        <div class="loading" v-if="loading">
+            <div class="loadbox"> <img src="img/exhibition/loading.gif"> 页面加载中... </div>
+        </div>
+        <div class="header">
+            <img class="logo" src="./img/exhibition/logo.png">
+            <div class="title">博创二级节点监控平台</div>
+            <div class="right_content">
+                <div class="current_time">
+                    {{nowTime}}
+                </div>
+                <!-- <div class="logout">
+                    退出
+                </div> -->
+            </div>
+        </div>
+        <div class="section">
+            <div class="column">
+                <div class="volume">
+                    <div class="cumulative">
+                        <div class="value">
+                            <count-to :start-val="oldAmount.totalAmount" :end-val='amount.totalAmount' :duration=4000>
+                            </count-to>
+                        </div>
+                        <div class="label">累计标识注册量</div>
+                    </div>
+                    <div class="list">
+                        <div class="item">
+                            <div class="value">
+                                <count-to :start-val="oldAmount.dailyRegisterAmount"
+                                    :end-val='amount.dailyRegisterAmount' :duration=4000></count-to>
+                            </div>
+                            <div class="label">
+                                今日标识注册
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="value">
+                                <count-to :start-val="oldAmount.dailyParseAmount" :end-val='amount.dailyParseAmount'
+                                    :duration=4000></count-to>
+                            </div>
+                            <div class="label">
+                                今日标识解析
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="value">
+                                <count-to :start-val="oldAmount.totalEquAmount" :end-val='amount.totalEquAmount'
+                                    :duration=4000></count-to>
+                            </div>
+                            <div class="label">
+                                总机台数
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="value">
+                                <count-to :start-val="oldAmount.onlineEquAmount" :end-val='amount.onlineEquAmount'
+                                    :duration=4000></count-to>
+                            </div>
+                            <div class="label">
+                                在线机台数
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="distribution">
+                    <div class="title_bar">
+                        <div class="title_dot"></div>
+                        <div class="title_text">标识解析分布</div>
+                    </div>
+                    <div class="map"></div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="panel">
+                    <div class="title_bar">
+                        <div class="title_dot"></div>
+                        <div class="title_text">最新标识动态</div>
+                    </div>
+                    <div class="content">
+                        <div class="head">
+                            <span class="col">标识编码</span>
+                            <span class="col">所属企业</span>
+                            <span class="col">类型</span>
+                            <span class="col">时间</span>
+                        </div>
+                        <div class="marquee-view">
+                            <vue-seamless-scroll :data="detail" :class-option="seamlessScrollOption" style="
+                              height: 8rem;
+                              overflow: hidden;
+                            ">
+                                <ul class="marquee">
+                                    <li class="row" v-for="(item, index) in detail" :key="index">
+                                        <span class="col">{{item.handle}}</span>
+                                        <span class="col">{{item.tenantName}}</span>
+                                        <span class="col"
+                                            :style="{color: item.type == 1 ? '#cec300' : '#30a6ce'}">{{item.type == 1
+                                            ? '注册': '解析'}}</span>
+                                        <span class="col">{{item.time}}</span>
+                                    </li>
+                                </ul>
+                            </vue-seamless-scroll>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="title_bar">
+                        <div class="title_dot"></div>
+                        <div class="title_text">近7日标识注册</div>
+                    </div>
+                    <div class="register"></div>
+                </div>
+                <div class="panel">
+                    <div class="title_bar">
+                        <div class="title_dot"></div>
+                        <div class="title_text">近7日标识解析</div>
+                    </div>
+                    <div class="analysis"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/vue.min.js"></script>
+    <script src="./js/exhibition/vue-count-to.min.js"></script>
+    <script src="./js/exhibition/vue-seamless-scroll.min.js"></script>
+    <script src="./node_modules/axios/axios.min.js"></script>
+    <script src="./js/exhibition/echarts.min.js"></script>
+    <script src="./js/exhibition/china.js"></script>
+    <script src="./js/exhibition/index.js?t=2022719"></script>
+</body>
+
+</html>

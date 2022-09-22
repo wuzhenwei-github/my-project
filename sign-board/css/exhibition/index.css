@@ -1,0 +1,349 @@
+body {
+    line-height: 1.15;
+    font-size: 0.5rem;
+    margin: 0;
+    padding: 0;
+    background: url("../../img/exhibition/bg.png") no-repeat;
+    background-size: cover;
+    color: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.loading {
+    position: fixed;
+    left: 0;
+    top: 0;
+    font-size: 16px;
+    z-index: 100000000;
+    width: 100%;
+    height: 100%;
+    background: #1a1a1c;
+    text-align: center;
+}
+
+.loadbox {
+    position: absolute;
+    width: 160px;
+    height: 150px;
+    color: rgba(255, 255, 255, .6);
+    left: 50%;
+    top: 50%;
+    margin-top: -100px;
+    margin-left: -75px;
+}
+
+.loadbox img {
+    margin: 10px auto;
+    display: block;
+    width: 40px;
+}
+
+.app {
+    min-width: 1024px;
+    padding: 0 24px;
+}
+
+.header {
+    position: relative;
+    height: 4.2rem;
+    background: url("../../img/exhibition/title_bg.png") no-repeat;
+    background-size: contain;
+    background-position: left bottom;
+}
+
+.header .logo {
+    position: absolute;
+    top: 1.5rem;
+    left: 0.2rem;
+    width: 8rem;
+    height: 1.4rem;
+}
+
+.header .title {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    font-size: 1.8rem;
+    transform: translateX(-50%);
+    font-weight: 700;
+}
+
+.header .right_content {
+    position: absolute;
+    top: 1.5rem;
+    right: 0;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.right_content .current_time {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* .right_content .logout {
+    padding-left: 1.3rem;
+    background: url("../../img/exhibition/logout.png") no-repeat;
+    background-position: left;
+    background-size: contain;
+    margin-left: 1rem;
+} */
+
+.right_content .logout:hover {
+    cursor: pointer;
+}
+
+.section {
+    display: flex;
+    margin: 20px 0;
+}
+
+.column {
+    flex: 7;
+}
+
+.column:nth-child(2) {
+    flex: 3;
+    margin-left: 2rem;
+}
+
+.volume {
+    display: flex;
+    height: 10rem;
+    align-items: center;
+}
+
+.volume .cumulative {
+    flex: 3.5;
+}
+
+.volume .cumulative .value {
+    font-size: 2rem;
+    color: #fff200;
+    font-weight: bold;
+    margin-bottom: 1.6rem;
+    margin-top: 2.5rem;
+    text-align: center;
+}
+
+.volume .cumulative .label {
+    font-size: 0.7rem;
+    color: #00ddf6;
+    font-weight: bold;
+    text-align: center;
+}
+
+.volume .list {
+    flex: 6.5;
+    display: flex;
+}
+
+.volume .list .item {
+    flex: 2.5;
+    height: 5rem;
+    position: relative;
+}
+
+.volume .list .item:nth-child(1) {
+    background: url("../../img/exhibition/1.png") no-repeat;
+    background-size: contain;
+    background-position: center;
+    color: #fcc42e;
+}
+
+.volume .list .item:nth-child(2) {
+    background: url("../../img/exhibition/2.png") no-repeat;
+    background-size: contain;
+    background-position: center;
+    color: #48deff;
+}
+
+.volume .list .item:nth-child(3) {
+    background: url("../../img/exhibition/3.png") no-repeat;
+    background-size: contain;
+    background-position: center;
+    color: #ff8467;
+}
+
+.volume .list .item:nth-child(4) {
+    background: url("../../img/exhibition/4.png") no-repeat;
+    background-size: contain;
+    background-position: center;
+    color: #00ffaf;
+}
+
+.volume .list .item .value {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.volume .list .item .label {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -1.2rem;
+    font-size: 0.7rem;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.panel {
+    height: 12rem;
+    background: url("../../img//exhibition/border.png") no-repeat;
+    background-size: 100% 100%;
+    margin-bottom: 1.4rem;
+    padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.panel:last-child {
+    margin-bottom: 0;
+}
+
+.title_bar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    height: 1.6rem;
+    padding-top: 0.2rem;
+}
+
+.title_dot {
+    border-radius: 10px;
+    background-color: #fff;
+    min-width: 0.16rem;
+    height: 0.85rem;
+    background-color: #00ebff;
+}
+
+.title_text {
+    font-size: 0.8rem;
+    margin-left: 0.4rem;
+    height: 2rem;
+    line-height: 1.9rem;
+    font-weight: bold;
+    color: #00ebff;
+}
+
+.panel .content {
+    flex: 1;
+    padding-right: 1rem;
+}
+
+.content .head {
+    font-size: 0.6rem;
+    padding: 0.3rem 0 0.6rem;
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    color: #2c81a8;
+    border-bottom: 1px solid #2c81a8;
+}
+
+.content .col:nth-child(1) {
+    width: 7.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.content .col:nth-child(2) {
+    width: 4rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.content .col:nth-child(3) {
+    width: 2rem;
+}
+
+.content .col:nth-child(4) {
+    width: 2rem;
+}
+
+.marquee-view {
+    height: 8rem;
+    overflow: hidden;
+}
+
+.marquee-view .row {
+    line-height: 1.05;
+    padding: 0.5rem 0;
+    color: #ccced5;
+    font-size: 0.5rem;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.marquee-view .row:hover {
+    color: #68d8ff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.marquee-view .row:hover .icon-dot {
+    opacity: 1;
+}
+
+.marquee-view .icon-dot {
+    position: absolute;
+    left: 0.64rem;
+    opacity: 0;
+}
+
+.panel .register,
+.panel .analysis {
+    flex: 1;
+}
+
+.distribution {
+    height: 28.8rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.distribution .map {
+    flex: 1;
+}
+
+
+
+@media screen and (max-width: 1600px) {
+    .top span {
+        transform: scale(0.9);
+    }
+
+    .top .province ul.sup li {
+        padding: 0.4rem 0.5rem;
+    }
+
+    .top .province ul.sub li {
+        padding: 0.23rem 0.5rem;
+    }
+
+    .quarter span {
+        transform: scale(0.9);
+    }
+}
